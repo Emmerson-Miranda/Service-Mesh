@@ -5,7 +5,7 @@ It will be done between RabbitMQ and a RabbitMQ Microservice client servers.
 
 This POC use vagrant to provision one Consul server with three servers (consul agents) in the host machine as per below image.
 
-NGINX is a proxy server that can be used to implement Service Mesh as well, but in this case I'm going to use it only to give access to Consul DNS and Consul web console, because by defaul Consul publish this services in the loopback interface.
+NGINX is a proxy server that can be used to implement Service Mesh as well, but in this case I'm going to use it only to give access to Consul DNS and Consul web console, because by defaul Consul publish this services by the loopback interface.
 
 ![Architecture](img/consul-arq.png)
 
