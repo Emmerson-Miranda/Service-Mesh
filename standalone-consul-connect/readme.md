@@ -1,7 +1,11 @@
 # Introduction
-This is a POC to implement Service Mesh pattern using Consul between RabbitMQ and one standalone microservice (two instances).
+This is a POC to implement Service Mesh pattern in standalone machines or VMs with Consul Connect.
 
-This POC use vagrant to provision one Consul server with three agents in the host machine as per below image.
+It will be done between RabbitMQ and a RabbitMQ Microservice client servers.
+
+This POC use vagrant to provision one Consul server with three servers (consul agents) in the host machine as per below image.
+
+NGINX is a proxy server that can be used to implement Service Mesh as well, but in this case I'm going to use it only to give access to Consul DNS and Consul web console, because by defaul Consul publish this services in the loopback interface.
 
 ![Architecture](img/consul-arq.png)
 
@@ -49,7 +53,7 @@ any-box$ dig @172.20.20.10 -p 8600 ms-rmq-client.service.consul SRV
 
 
 # After start servers
-After deploy this infrastructure, lets find out if everthing is working as expected, following next steps:
+After deploy this infrastructure, lets find out if everthing is working as expected, please follow next steps:
 
 Create a register and listener to a queue (following command will call microservice to listen the 'demoqueue' if that queue does not exist will be created)
 ```
