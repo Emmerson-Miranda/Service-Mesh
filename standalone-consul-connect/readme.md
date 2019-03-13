@@ -21,6 +21,8 @@ Below image show a couple of "Consul service configuration files" and how match 
 ![Consul configuration](img/consul-ui-config.png)
 
 ## GUI
+After start all servers you can access web consoles using following links:
+
 - Consul http://172.20.20.10:8500/ui/dc-dev/nodes
 - RabbitMQ http://172.20.20.11:15672/#/queues
 - RabbitMQ-Client microservice (**Service Mesh**) http://172.20.20.10:8888/swagger-ui.html
