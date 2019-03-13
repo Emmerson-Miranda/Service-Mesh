@@ -1,0 +1,6 @@
+{
+  "service": {
+    "name": "RabbitMQ-HTTP",
+    "port": 15672
+  }
+}

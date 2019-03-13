@@ -1,0 +1,42 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Specify a Consul version
+CONSUL_DEMO_VERSION = ENV['CONSUL_DEMO_VERSION']
+
+# Specify a custom Vagrant box for the demo
+DEMO_BOX_NAME = ENV['DEMO_BOX_NAME'] || "debian/stretch64"
+
+# Vagrantfile API/syntax version.
+# NB: Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = DEMO_BOX_NAME
+
+ config.vm.define "server01" do |server01|
+      server01.vm.hostname = "server01"
+      server01.vm.network "private_network", ip: "172.20.20.10"
+      server01.vm.provision "shell", path: "scripts/shell/server_provision_script.sh", env: {'CONSUL_DEMO_VERSION' => CONSUL_DEMO_VERSION}
+  end
+
+  config.vm.define "agent01" do |agent01|
+      agent01.vm.hostname = "agent01"
+      agent01.vm.network "private_network", ip: "172.20.20.11"
+      agent01.vm.provision "shell", path: "scripts/shell/agent_01_provision_script.sh", env: {'CONSUL_DEMO_VERSION' => CONSUL_DEMO_VERSION}
+  end
+
+  config.vm.define "agent02" do |agent02|
+      agent02.vm.hostname = "agent02"
+      agent02.vm.network "private_network", ip: "172.20.20.12"
+      agent02.vm.provision "shell", path: "scripts/shell/agent_02_provision_script.sh", env: {'CONSUL_DEMO_VERSION' => CONSUL_DEMO_VERSION}
+  end
+
+  config.vm.define "agent03" do |agent03|
+      agent03.vm.hostname = "agent03"
+      agent03.vm.network "private_network", ip: "172.20.20.13"
+      agent03.vm.provision "shell", path: "scripts/shell/agent_03_provision_script.sh", env: {'CONSUL_DEMO_VERSION' => CONSUL_DEMO_VERSION}
+  end
+end
+
+

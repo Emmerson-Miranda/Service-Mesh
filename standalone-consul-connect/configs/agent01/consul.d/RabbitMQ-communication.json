@@ -1,0 +1,9 @@
+{
+  "service": {
+    "name": "RabbitMQ-AMQP-Connection",
+    "port": 5672,
+    "connect": {
+      "proxy": {}
+    }
+  }
+}

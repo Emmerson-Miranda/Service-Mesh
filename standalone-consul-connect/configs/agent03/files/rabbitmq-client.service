@@ -1,0 +1,14 @@
+[Unit]
+Description=rabbitmq-client
+After=syslog.target
+
+[Service]
+User=consul
+ExecStart=/var/rabbitmq-client/rabbitmq-client.jar
+SuccessExitStatus=143
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=rabbitmq-client
+
+[Install]
+WantedBy=multi-user.target
